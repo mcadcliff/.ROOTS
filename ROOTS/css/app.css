@@ -1,0 +1,332 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+body.wrapper {
+  width: calc(100% - 30px);
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #804c2c;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  font-family: "info-correspondence-web-pro", sans-serif;
+  display: inline;
+}
+
+h1 {
+  font-size: 50px;
+  margin-left: 20px;
+}
+
+h2 {
+  font-size: 40px;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 40px;
+}
+
+h4 {
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 10px;
+}
+
+p {
+  font-size: 12px;
+}
+
+header {
+  background-color: rgba(144, 82, 59, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+header nav {
+  width: 65%;
+  padding: 10px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: auto;
+}
+
+header nav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #804c2c;
+}
+
+header nav ul li a:hover, header nav ul li a.active {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 750px) {
+  header nav,
+  header ul {
+    width: 100%;
+    padding-left: 0;
+  }
+  header nav li,
+  header ul li {
+    margin-right: 10px;
+  }
+  header h1 {
+    margin-right: 20px;
+  }
+}
+
+#origins .main-content,
+#variations .main-content,
+#nutrition .main-content,
+#recipes .main-content {
+  width: 80%;
+  margin-left: auto;
+  margin-right: 50px;
+}
+
+#origins .main-content.wrapper,
+#variations .main-content.wrapper,
+#nutrition .main-content.wrapper,
+#recipes .main-content.wrapper {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 750px) {
+  #origins .main-content,
+  #variations .main-content,
+  #nutrition .main-content,
+  #recipes .main-content {
+    width: 100%;
+  }
+}
+
+#roots {
+  background-color: rgba(144, 82, 59, 0.1);
+}
+
+#roots #logo {
+  display: block;
+  text-align: center;
+}
+
+#roots #logo h1 {
+  font-size: 100px;
+  color: #804c2c;
+}
+
+#logo {
+  position: relative;
+  z-index: 99;
+}
+
+.roots {
+  width: 15%;
+  position: absolute;
+  top: 0;
+  z-index: 9;
+}
+
+.roots img {
+  height: 100vh;
+}
+
+#origins .origin-info {
+  margin-top: 40px;
+}
+
+#origins .map {
+  height: 80vh;
+  border: 3px solid #804c2c;
+  position: relative;
+}
+
+#origins .map .overlay {
+  position: absolute;
+  z-index: 2;
+  background-color: rgba(144, 82, 59, 0.3);
+  width: 100%;
+  height: 100%;
+}
+
+#origins .map img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#origins .map .timeline {
+  width: 100%;
+  border: 2px solid rgba(144, 82, 59, 0.5);
+  position: relative;
+  top: 15px;
+}
+
+#origins .map .timeline .point {
+  border-radius: 50%;
+  background-color: #804c2c;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -7px;
+}
+
+#origins .fun-facts {
+  margin-top: 50px;
+}
+
+@media only screen and (max-width: 750px) {
+  #origins .map {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+#variations .wheel {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#variations .wheel .wheel-outer {
+  border-radius: 50%;
+  width: 100%;
+  height: 500px;
+  border: 1px solid #804c2c;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#variations .wheel .wheel-outer .wheel-inner {
+  border-radius: 50%;
+  width: 80%;
+  height: 400px;
+  border: 1px solid #804c2c;
+  margin: 0 auto;
+  background-color: rgba(144, 82, 59, 0.1);
+}
+
+@media only screen and (max-width: 750px) {
+  #variations .wheel {
+    width: 90%;
+    margin-left: 40px;
+  }
+  #variations .wheel .wheel-outer {
+    height: 450px;
+  }
+  #variations .wheel .wheel-outer .wheel-inner {
+    height: 350px;
+  }
+}
+
+#recipes .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+}
+
+#recipes .grid .recipe {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#recipes .grid .recipe .image {
+  border: 1px solid #804c2c;
+  width: 200px;
+  height: 200px;
+}
+
+#recipes .grid .recipe .text {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#recipes .grid .recipe .text a {
+  color: #804c2c;
+  text-decoration: none;
+  border-bottom: 2px solid #804c2c;
+}
+
+#recipes .grid .recipe .text a:hover {
+  color: rgba(144, 82, 59, 0.5);
+  border-bottom: 2px solid rgba(144, 82, 59, 0.5);
+}
+
+@media only screen and (max-width: 750px) {
+  #recipes .grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 90%;
+    margin-left: auto;
+  }
+}
+/*# sourceMappingURL=app.css.map */

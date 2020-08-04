@@ -31,6 +31,103 @@ img {
   width: 100%;
 }
 
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: $brown-100;
+  cursor: pointer;
+  margin-top: -5px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: $brown-100;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: $brown-100;
+  cursor: pointer;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: $brown-50;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: $brown-50
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: $brown-50;
+  border-radius: 1.3px;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 8.4px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  border-width: 16px 0;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: $brown-50;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: $brown-50;
+}
+input[type=range]::-ms-fill-upper {
+  background: $brown-50;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: $brown-50;
+}
+
+
 // TYPOGRAPHY //
 $pro-bold: 'info-correspondence-web-pro', sans-serif;
 
@@ -128,6 +225,7 @@ header {
     width: 80%;
     margin-left: auto;
     margin-right: 50px;
+    margin-bottom: 50px;
     &.wrapper {
       margin-top: 50px;
       margin-bottom: 50px;
@@ -138,19 +236,61 @@ header {
   }
 }
 
+.wrapper {
+  margin: 0 30px;
+}
 
 // ---- ROOTS PAGE ----- //
 #roots {
-  background-color: $brown-10;
-  #logo {
-    display: block;
-    text-align: center;
+  .background {
+    .overlay {
+      background-color: $brown-50;
+      position: absolute;
+      width: 100vw;
+      height: 100%;
+    }
+    video {
+      width: 100%;
+      height: 45%;
+      position: absolute;
+      object-fit: cover;
+      top: 55.5%;
+    }
     h1 {
+      position: relative;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+      color: $brown-50;
       font-size: 100px;
-      color: $brown-100;
+    }
+  }
+  .links {
+    position: absolute;
+    top: 25%;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-start;
+    img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
+  }
+  @media only screen and (max-width: 750px) {
+    .links {
+      top: 40% !important;
+      img {
+        width: 100px !important;
+        height: 100px !important;
+      }
     }
   }
 }
+
+
 
 #logo {
   position: relative;
@@ -158,22 +298,38 @@ header {
 }
 
 .roots {
-  width: 15%;
   position: absolute;
   top: 0;
   z-index: 9;
   img {
-    height: 100vh;
+    min-height: 250vh;
+    width: auto;
+    max-width: 500px;
+    bottom: 150px;
+    position: relative;
+  }
+  @media only screen and (max-width: 750px) {
+    img {
+      display: none !important;
+    }
   }
 }
 
 
 // ---- ORIGINS PAGE ----- //
 #origins {
+  .main-content {
+    padding-top: 5%;
+  }
   .origin-info {
-    margin-top: 40px;
+    margin-top: 80px;
+    .info {
+      font-family: $pro-bold;
+      font-size: 14px;
+    }
   }
   .map {
+    margin-top: 50px;
     height: 80vh;
     border: 3px solid $brown-100;
     position: relative;
@@ -185,78 +341,184 @@ header {
       height: 100%;
     }
     img {
-      object-fit: cover;
+      object-fit: contain;
       display: block;
       width: 100%;
       height: 100%;
     }
     .timeline {
-      width: 100%; 
-      border: 2px solid $brown-50;
-      position: relative;
-      top: 15px;
-      .point {
-        border-radius: 50%;
-        background-color: $brown-100;
-        width: 15px;
-        height: 15px;
-        position: absolute;
-        top: -7px;
+      input {
+        margin-top: 20px;
+      }
+     .times {
+      display: flex;
+      justify-content: space-between;
+     }
+      .time {
+        font-family: $pro-bold;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .value-container {
+        min-width: 100%;
+        .point {
+          border-radius: 50%;
+          background-color: $brown-100;
+          width: 15px;
+          height: 15px;
+          position: absolute;
+          top: -7px;
+          z-index:9;
+        }
       }
     }
   }
   .fun-facts {
     margin-top: 50px;
+    h3 {
+      display: block;
+      text-align: center;
+    }
+    .facts {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      grid-gap: 50px;
+      .circle {
+        position: relative;
+        max-width: 300px;
+        width: 100%;
+        img {
+          height: 300px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        figcaption {
+          position: absolute;
+          color: #000;
+          background: rgba(255,255,255,0.4);
+          text-align: center;
+          padding: 20px;
+          height: 350px;
+          top: 0;
+          display: flex;
+          align-items: center;
+          font-family: $pro-bold;
+        }
+      }
+    }
   }
   @media only screen and (max-width: 750px) {
     .map {
       width: 90%;
       margin: 0 auto;
     }
+    .facts {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center;
+    }
+    .origin-info {
+      margin: 0 30px;
+      position: relative;
+      top: 50px;
+      padding: 30px 0;
+    }
   }
 }
 
+
 // ---- VARIATIONS PAGE ----- //
 #variations {
-  .wheel {
-    width: 50%;
-    margin: 0 auto;
-    .wheel-outer {
-      border-radius: 50%;
-      width: 100%;
-      height: 500px;
-      border: 1px solid $brown-100;
-      display: flex;
-      align-items: center;
-      .wheel-inner {
-        border-radius: 50%;
-        width: 80%;
-        height: 400px;
-        border: 1px solid $brown-100;
-        margin: 0 auto;
-        background-color: $brown-10;
-      }
+  .callout {
+    text-align: center;
+    margin-bottom: 40px;
+    font-family: $pro-bold;
+    display: flex;
+    flex-direction: column;
+    h5 {
+      margin-bottom: 0;
     }
   }
-  @media only screen and (max-width: 750px) {
-    .wheel {
-      width: 90%;
-      margin-left: 40px;
-      .wheel-outer {
-        height: 450px;
-        .wheel-inner {
-          height: 350px;
+  .wheel {
+    width: auto;
+    margin: 0 auto;
+    max-width: 500px;
+    .wheel-outer {
+      border-radius: 50%;
+      max-height: 500px;
+      border: 1px solid $brown-100;
+      background-color: $brown-50;
+      padding: 0 10px 0;
+      position: relative;
+      .wheel-inner {
+        border-radius: 50%;
+        width: auto;
+        min-width: 350px;
+        max-width: 350px;
+        padding: 45px;
+        line-height: 36px;
+        height: 350px;
+        border: 1px solid #804c2c;
+        background-color: rgba(255,255,255,0.6);
+        position: absolute;
+        top: 14%;
+        right: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: $pro-bold;
+        flex-direction: column;
+        h4 {
+          margin: -30px 0;
+          position: relative;
+          bottom: 50%;
+          text-align: center;
+        }
+        h5 {
+          text-align: center;
         }
       }
     }
   }
+  @media only screen and (max-width: 750px) {
+  }
 }
+
+
+
+
+svg {
+  width: 100%;
+  height: 500px;
+  .line {
+    letter-spacing: 50px;
+    fill: rgba(144, 82, 59, -0.5);
+  }
+  a {
+    fill: white;
+    text-transform: uppercase;
+    &:hover {
+      fill: $brown-50;
+    }
+  }
+  #active {
+    a {
+      fill: $brown-100;
+    }
+  }
+}
+
 
 // ---- RECIPES PAGE ----- //
 #recipes {
+  h2 {
+    display: block;
+    text-align: center;
+  }
   .grid {
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    grid-gap: 50px;
     .recipe {
       display: flex;
       flex-direction: column;
@@ -264,12 +526,20 @@ header {
       align-items: center;
       .image {
         border: 1px solid $brown-100;
-        width: 200px;
         height: 200px;
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
       }
       .text {
         text-align: center;
-        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h5 {
+          margin: 10px 0;
+        }
         a {
           color: $brown-100;
           text-decoration: none;
@@ -282,12 +552,158 @@ header {
       }
     }
   }
+  .form {
+    margin-top: 50px;
+    border: 2px solid $brown-10;
+    padding: 40px;
+    background-color: rgba(144, 82, 59, 0.1);
+    h3 {
+      display: block;
+      text-align: center;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .form-fields {
+        .field {
+          display: flex;
+          margin: 20px 0;
+          &:last-child {
+            margin-top: 40px;
+          }
+          label {
+            min-width: 150px;
+            font-family: $pro-bold;
+          }
+          input {
+            border: 0;
+            border-bottom: 1px solid black;
+            width: 100%;
+            background-color: rgba(144, 82, 59, 0.1);
+          }
+          textarea {
+            background-color: rgba(144, 82, 59, 0.1);
+          }
+        }
+        button {
+          display: flex;
+          justify-content: center;
+          width: 70%;
+          margin-left: auto;
+          background-color: $brown-100;
+          height: 40px;
+          align-items: center;
+          a {
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
   @media only screen and (max-width: 750px) {
+    .main-content {
+      &.wrapper {
+        margin-bottom: 0 !important;
+      }
+    }
     .grid {
       display: flex;
       flex-direction: column;
+      align-items: center; 
+      .recipe {
+        width: 100%;
+        .image {
+          width: 100%;
+        }
+      }
+    }
+    .form-fields {
       width: 90%;
-      margin-left: auto;
+      .field {
+        flex-direction: column;
+        label {
+          position: relative;
+          top: 19px;
+          &.focus {
+            top: 0;
+          }
+        }
+      }
+      button {
+        width: 100% !important;
+      }
+    }
+  }
+}
+
+#nutrition {
+  &.main-content {
+    width: 69%;
+  }
+  .main-content {
+    padding-top: 5%;
+    h2 {
+      color: $brown-100;
+    }
+    ul {
+      font-family: $pro-bold;
+      color: $brown-100;
+      li {
+        margin: 30px 0;
+        ul {
+          color: $brown-50;
+          li {
+            margin: 10px 0;
+          }
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 750px) {
+    &.main-content {
+      width: 100% !important;
+      padding-right: 30px;
+      padding-left: 30px;
+    }
+  }
+}
+
+.lightbox-wrapper {
+  button {
+    background-color: $brown-50;
+    color: #FFF;
+    border: none;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    font-family: $pro-bold;
+  }
+  .lightbox-content {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    width: 50%;
+    height: 100%;
+    padding: 16px;
+    border: 5px solid $brown-50;
+    background-color: white;
+    z-index:1002;
+    overflow: auto;
+    .right {
+      position: relative;
+      left: 98%;
+      bottom: 6px;
+    }
+  }
+  @media only screen and (max-width: 750px) { 
+    button {
+      width: 100%;
+      justify-content: center;
+    }
+    .lightbox-content {
+      left: 5% !important;
+      width: 90% !important;
     }
   }
 }

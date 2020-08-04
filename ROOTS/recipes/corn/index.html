@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROOTS</title>
+    <link rel="stylesheet" type="text/css" href="../../css/app.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ngw4acf.css">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body id="recipes">
+
+    <header>
+      <span id="logo">
+        <a href="../../roots/index.html">
+          <h1>ROOTS</h1>
+        </a>
+      </span>
+      <nav>
+          <ul>
+              <li><a href="../../origins/corn/index.html">origins</a></li>
+              <li><a href="../../variations/corn/index.html">variations</a></li>
+              <li><a href="../../nutrition/corn/index.html">nutrition</a></li>
+              <li><a href="#" class="active">recipes</a></li>
+          </ul>
+      </nav>
+    </header>
+
+    <div class="roots">
+      <img src="../../images/roots.png" alt="roots">
+    </div>
+
+    <main class="main-content wrapper">
+      <h2>Recipes From Around The World</h2>
+      <section class="grid">
+        <div class="recipe">
+          <div class="image">
+            <img src="../images/c1.jpg" alt="Central American Atol de Elote">
+          </div>
+          <div class="text">
+            <h5>Central American Atol de Elote</h5>
+            <a href="https://www.whats4eats.com/beverages/atol-de-elote-recipe" target="_blank">Read More</a>
+          </div>
+        </div>
+        <div class="recipe">
+          <div class="image">
+            <img src="../images/c2.jpg" alt="Venezuelan Cachapas">
+          </div>
+          <div class="text">
+            <h5>Venezuelan Cachapas</h5>
+            <a href="https://www.whats4eats.com/breads/cachapas-recipe" target="_blank">Read More</a>
+          </div>
+        </div>
+        <div class="recipe">
+          <div class="image">
+            <img src="../images/c3.jpg" alt="Equadorian Cancha">
+          </div>
+          <div class="text">
+            <h5>Equadorian Cancha</h5>
+            <a href="https://www.whats4eats.com/appetizers/cancha-recipe" target="_blank">Read More</a>
+          </div>
+        </div>
+        <div class="recipe">
+          <div class="image">
+            <img src="../images/c4.jpg" alt="American Creamed Corn">
+          </div>
+          <div class="text">
+            <h5>American Creamed Corn</h5>
+            <a href="https://www.whats4eats.com/vegetables/creamed-corn-recipe" target="_blank">Read More</a>
+          </div>
+        </div>
+        <div class="recipe">
+          <div class="image">
+            <img src="../images/c5.jpg" alt="Mexican Elotes Asados">
+          </div>
+          <div class="text">
+            <h5>Mexican Elotes Asados</h5>
+            <a href="https://www.whats4eats.com/vegetables/elotes-asados-recipe" target="_blank">Read More</a>
+          </div>
+        </div>
+        <div class="recipe">
+          <div class="image">
+            <img src="../images/c6.jpg" alt="Chilean Pastel de Choclo">
+          </div>
+          <div class="text">
+            <h5>Chilean Pastel de Choclo</h5>
+            <a href="https://www.whats4eats.com/meats/pastel-de-choclo-recipe" target="_blank">Read More</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="form">
+        <h3>Want to contribute a recipe to ROOTS? <br>Submit your information here!</h3>
+        <form id="contact-form" class="contact-form" action="contact.php" method="post">
+          <div class="form-fields">
+            <div class="field">
+              <label for="contact_name">Your Name:</label>
+              <input id="contact_name" class="contact" type="text" value="" name="name" />
+            </div>
+            <div class="field">
+              <label for="contact_email">Your Email:</label>
+              <input id="contact_email" class="contact" type="text" value="" name="email" />
+            </div>
+            <div class="field">
+              <label for="contact_message">Your Recipe:</label>
+              <textarea id="contact_message" class="contact" name="message" rows="10" cols="40"></textarea>
+            </div>
+            <button class="contact-submit">
+              <a class="submit" href="mailto:acliff@mcad.edu?subject=Mail request&body=contact-message" onclick="sendMail()">Submit</a>
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <script>
+      function sendMail() {
+        var body = document.getElementById("contact_message").value;
+        window.location.href = "mailto:acliff@mcad.edu?subject=Mail request&body="+body;
+      }
+    </script>
+
+    <script>
+      $(document).ready(function() {
+        $('input, textarea').blur(function() {
+            $('input, textarea').removeClass("focus").siblings('label').removeClass('focus');
+          })
+          .focus(function() {
+            $(this).addClass("focus").siblings('label').addClass('focus');
+          });
+      });
+    </script>
+
+  </body>
+</html>

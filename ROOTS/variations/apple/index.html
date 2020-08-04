@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROOTS</title>
+    <link rel="stylesheet" type="text/css" href="../../css/app.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ngw4acf.css">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  </head>
+  <body id="variations">
+
+    <header>
+      <span id="logo">
+        <a href="../../roots/index.html">
+          <h1>ROOTS</h1>
+        </a>
+      </span>
+        <nav>
+            <ul>
+                <li><a href="../../origins/apple/index.html">origins</a></li>
+                <li><a href="#" class="active">variations</a></li>
+                <li><a href="../../nutrition/apple/index.html">nutrition</a></li>
+                <li><a href="../../recipes/apple/index.html">recipes</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="roots">
+      <img src="../../images/roots.png" alt="roots">
+    </div>
+
+    <main class="main-content wrapper">
+      <div class="callout wrapper">Click and drag the names to see all of the varieties!</div>
+      <section class="wheel">
+        <div class="wheel-outer">
+          <div class="wheel-inner"><h5>Click a name to see more information.</h5></div>
+          <svg id="myShape">
+            <defs>
+                <path id="path1"fill="none" stroke="black" stroke-width="1"
+                  d="
+                    M 125, 425
+                    a 200,200 0 1,1 225,0
+                    " />
+            </defs>
+            <text id="myText">
+              <textPath  xlink:href="#path1">
+                <tspan dy="0.3em">
+                  <tspan id="1"><a href="#">Pink Lady®</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="2"><a href="#">Empire</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="3"><a href="#">Fuji</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="4"><a href="#">Gala</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="5"><a href="#">Granny Smith</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="6"><a href="#">Honey Crisp</a></tspan>
+                </tspan>
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      </section>
+        
+    </main>
+
+    <script>
+   $('#myShape').draggable({
+    opacity: 0.001,
+    helper: 'clone',
+      drag: function(event) {
+        var // get center of div to rotate
+          pw = document.getElementById('myShape'),
+          pwBox = pw.getBoundingClientRect(),
+          center_x = (pwBox.left + pwBox.right) / 2,
+          center_y = (pwBox.top + pwBox.bottom) / 2,
+          // get mouse position
+          mouse_x = event.pageX,
+          mouse_y = event.pageY,
+          radians = Math.atan2(mouse_x - center_x, mouse_y - center_y),
+          degree = Math.round((radians * (180 / Math.PI) * -1) + 100);
+
+        var rotateCSS = 'rotate(' + (degree + 170) + 'deg)';
+        $('#myShape').css({
+          '-moz-transform': rotateCSS,
+          '-webkit-transform': rotateCSS
+        });
+      }
+    });
+    </script>
+
+    <script>
+      function variations() {
+        $('#1').click(function(){
+          $(".wheel-inner").text('ORIGIN: Western Australia 1973 TASTE: tangy-tart and sweet flavor').css({"background-image": "url(../images/a1.png)", "background-size": "300px", "background-repeat": "no-repeat", "background-position": "center", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>PINK LADY®</h4');
+        });
+
+        $('#2').click(function(){
+          $(".wheel-inner").text('ORIGIN: State of New York in 1966 TASTE: sweet, crisp, crunchy').css({"background-image": "url(../images/a2.png)", "background-size": "300px", "background-repeat": "no-repeat", "background-position": "center", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>EMPIRE</h4');
+        });
+
+        $('#3').click(function(){
+          $(".wheel-inner").text('ORIGIN: Japan in the late 1930s TASTE: sweet with a tart flesh').css({"background-image": "url(../images/a3.png)", "background-size": "300px", "background-repeat": "no-repeat", "background-position": "center", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>FUJI</h4');
+        });
+
+        $('#4').click(function(){
+          $(".wheel-inner").text('ORIGIN: New Zealand in the 1930s TASTE: mildly sweet with a vanilla-like fragrance').css({"background-image": "url(../images/a4.png)", "background-size": "300px", "background-repeat": "no-repeat", "background-position": "center", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>GALA</h4');
+        });
+
+        $('#5').click(function(){
+          $(".wheel-inner").text('ORIGIN: Australia around 1868 TASTE: tart, acidic, yet sweet').css({"background-image": "url(../images/a5.png)", "background-size": "300px", "background-repeat": "no-repeat", "background-position": "center", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>GRANNY SMITH</h4');
+        });
+
+        $('#6').click(function(){
+          $(".wheel-inner").text('ORIGIN: Twin Cities in 1960 TASTE: sweet/tart, berry flavor').css({"background-image": "url(../images/a6.png)", "background-size": "300px", "background-repeat": "no-repeat", "background-position": "center", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>HONEY CRISP</h4');
+        });
+        
+      }
+      variations();
+    </script>
+    
+  </body>
+</html>

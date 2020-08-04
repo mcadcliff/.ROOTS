@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROOTS</title>
+    <link rel="stylesheet" type="text/css" href="../../css/app.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ngw4acf.css">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+  </head>
+  <body id="variations">
+
+    <header>
+      <span id="logo">
+        <a href="../../roots/index.html">
+          <h1>ROOTS</h1>
+        </a>
+      </span>
+        <nav>
+            <ul>
+                <li><a href="../../origins/potato/index.html">origins</a></li>
+                <li><a href="#" class="active">variations</a></li>
+                <li><a href="../../nutrition/potato/index.html">nutrition</a></li>
+                <li><a href="../../recipes/potato/index.html">recipes</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="roots">
+      <img src="../../images/roots.png" alt="roots">
+    </div>
+
+    <main class="main-content wrapper">
+      <div class="callout wrapper">
+        <h5>Click and drag the names to see all of the varieties!</h5>
+        <p>There are more than 4,000 varieties of native potatoes.</p>
+      </div>
+      <section class="wheel">
+        <div class="wheel-outer">
+          <div class="wheel-inner"><h5>Click a name to see more information.</h5></div>
+          <svg id="myShape">
+            <defs>
+                <path id="path1"fill="none" stroke="black" stroke-width="1"
+                  d="
+                    M 125, 425
+                    a 200,200 0 1,1 225,0
+                    " />
+            </defs>
+            <text id="myText">
+              <textPath  xlink:href="#path1">
+                <tspan dy="0.3em">
+                  <tspan id="1"><a href="#">Red Bliss</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="2"><a href="#">Russet</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="3"><a href="#">Yukon Gold</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="4"><a href="#">French Fingerling</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="5"><a href="#">LaRette</a></tspan>
+                  <tspan class="line">|</tspan>
+                  <tspan id="6"><a href="#">All Blue</a></tspan>
+                </tspan>
+              </textPath>
+            </text>
+          </svg>
+        </div>
+      </section>
+        
+    </main>
+
+    <script>
+   $('#myShape').draggable({
+    opacity: 0.001,
+    helper: 'clone',
+      drag: function(event) {
+        var // get center of div to rotate
+          pw = document.getElementById('myShape'),
+          pwBox = pw.getBoundingClientRect(),
+          center_x = (pwBox.left + pwBox.right) / 2,
+          center_y = (pwBox.top + pwBox.bottom) / 2,
+          // get mouse position
+          mouse_x = event.pageX,
+          mouse_y = event.pageY,
+          radians = Math.atan2(mouse_x - center_x, mouse_y - center_y),
+          degree = Math.round((radians * (180 / Math.PI) * -1) + 100);
+
+        var rotateCSS = 'rotate(' + (degree + 170) + 'deg)';
+        $('#myShape').css({
+          '-moz-transform': rotateCSS,
+          '-webkit-transform': rotateCSS
+        });
+      }
+    });
+    </script>
+
+    <script>
+      function variations() {
+        $('#1').click(function(){
+          $(".wheel-inner").text('ORIGIN: Peru around the 1560s TASTE: firm, moist, waxy, stews, soups, roasting').css({"background-image": "url(../images/p1.jpg)", "background-position": "center", "background-repeat": "no-repeat", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>RED BLISS</h4');
+        });
+
+        $('#2').click(function(){
+          $(".wheel-inner").text('ORIGIN: Massachusetts 1870s TASTE: starchy, baking, fried, mashed').css({"background-image": "url(../images/p2.jpg)", "background-position": "center", "background-repeat": "no-repeat", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>RUSSET</h4');
+        });
+
+        $('#3').click(function(){
+          $(".wheel-inner").text('ORIGIN: Canada in the year 1966 TASTE: slightly sweet, smooth, moist, boiling, fries').css({"background-image": "url(../images/p3.jpg)", "background-position": "center", "background-repeat": "no-repeat", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>YUKON GOLD</h4');
+        });
+
+        $('#4').click(function(){
+          $(".wheel-inner").text('ORIGIN: Spain around 1500s  TASTE: used for roasting').css({"background-image": "url(../images/p4.jpg)", "background-position": "center", "background-repeat": "no-repeat", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>FRENCH FINGERLING</h4');
+        });
+
+        $('#5').click(function(){
+          $(".wheel-inner").text('ORIGIN: Denmark/France 1800s TASTE: roasted, boiled').css({"background-image": "url(../images/p5.png)", "background-position": "center", "background-repeat": "no-repeat", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>LARETTE</h4');
+        });
+
+        $('#6').click(function(){
+          $(".wheel-inner").text('ORIGIN: Andes in South America TASTE: taste similar to other potatoes').css({"background-image": "url(../images/p6.jpg)", "background-position": "center", "color": "#FFF"});
+          $('.wheel-inner').append('<h4>ALL BLUE</h4');
+        });
+        
+      }
+      variations();
+    </script>
+
+  </body>
+</html>

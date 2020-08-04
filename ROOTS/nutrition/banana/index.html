@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROOTS</title>
+    <link rel="stylesheet" type="text/css" href="../../css/app.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ngw4acf.css">
+    <link rel="icon" type="image/png" href="../../images/favicon.png">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  </head>
+  <body id="nutrition">
+
+    <header>
+      <span id="logo">
+        <a href="../../roots/index.html">
+          <h1>ROOTS</h1>
+        </a>
+      </span>
+      <nav>
+          <ul>
+              <li><a href="../../origins/banana/index.html">origins</a></li>
+              <li><a href="../../variations/banana/index.html">variations</a></li>
+              <li><a href="#" class="active">nutrition</a></li>
+              <li><a href="../../recipes/banana/index.html">recipes</a></li>
+          </ul>
+      </nav>
+    </header>
+      
+    <div class="roots">
+      <img src="../../images/roots.png" alt="roots">
+    </div>
+    
+    <main class="main-content" id="nutrition">
+      <h2>Banana Nutritional Facts:</h2>
+        <ul>
+          <li>+ Bananas are a good source of:
+            <ul>
+              <li>+ potassium</li>
+              <li>+ magnesium</li>
+              <li>+ serotonin</li>
+              <li>+ dopamine</li>
+              <li>+ norepinephrine</li>
+              <li>+ carbohydrates</li>
+              <li>+ vitamin B6</li>
+              <li>+ vitamin C</li>
+              <li>+ fiber</li>
+            </ul>
+          </li>
+          <li>+ Bananas have rapidly digestible starch which metabolizes into glucose.</li>
+          <li>+ Bananas also have slower digestible starches that act as longer-lasting fuel which help stabilize blood sugar levels.</li>
+          <li>+ Bananas contain antioxidants like phenolic compounds and carotenoids which may protect your cells from oxidative damage.</li>
+          <li>+ Bananas <i>don't</i> contain any:
+            <ul>
+              <li>- fat</li>
+              <li>- cholesterol</li>
+              <li>- salt</li>
+            </ul>
+          </li>
+        </ul>
+        <section class="lightbox-wrapper">
+          <button onclick="document.getElementById('lightbox').style.display='inline';">Click here to view general nutrition facts.</button>
+          <div id="lightbox" class="lightbox" style="display:none">
+            <div class="lightbox-content">
+              <a href="javascript:void(0)" onclick="document.getElementById('lightbox').style.display='none';" class="right">X</a>
+            </div>
+          </div>
+        </section>
+    </main>
+
+    <script>
+      $(document).on('click', function(event) {
+        if (!$(event.target).closest('button').length) {
+        $(".lightbox").hide();
+        }
+      });
+      $('.lightbox-content').append('<img src="../images/nutrition_list.png">');
+    </script>
+
+  </body>
+</html>

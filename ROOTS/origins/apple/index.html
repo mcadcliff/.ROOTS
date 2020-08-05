@@ -30,9 +30,14 @@
     
     <div class="roots">
       <img src="../../images/roots.png" alt="roots">
+      <a href="../../origins/apple/index.html"><img class="a root" src="../../images/apple.png" alt="apple"></a>
+      <a href="../../origins/potato/index.html"><img class="p root" src="../../images/potato.png" alt="potato"></a>
+      <a href="../../origins/corn/index.html"><img class="c root" src="../../images/corn.png" alt="corn"></a>
+      <a href="../../origins/mushroom/index.html"><img class="m root" src="../../images/mushroom.png" alt="mushroom"></a>
+      <a href="../../origins/banana/index.html"><img class="b root" src="../../images/banana.png" alt="banana"></a>
     </div>
 
-    <main class="main-content">
+    <main class="main-content" id="apple">
       <h2>The ancestor of the domestic apple is the Malus sieversii f. A taxonomic species within the family Rosaceae – the domestic apple tree.</h2>
 
       <section class="map">
@@ -40,7 +45,7 @@
         <img src="../images/map.png" alt="world-map">
         
         <div class="timeline">
-          <input type="range" min="0" max="200" class="value-container value" id="slider">
+          <div class="value-container value"><div class="point"></div>
           <div class="times" id="timeline">
             <span class="time value" id="1">4th century</span>
             <span class="time value" id="2">1066</span>
@@ -85,73 +90,27 @@
       </section>
     </main>
 
-   <!-- <script>
-      $(function() {
-        $('#slider').slider({
-            range: "max",
-            min: 0,
-            max: 200,
-            step: 50,
-            slide: function(event, ui) {
-              $('.info').text(ui.value);
-            }
-        });
-        $('.info').text($('#slider').slider('value'));
-    });
-    </script> -->
+    <script>
+      $('#1').click(function(){
+        $('.info').text('Scientists believe the Tian Shan apple seeds were first transported out of Kazakhstan by birds and bears long before humans ever cultivated them.');
+        $('.value').addClass("one").removeClass("two three four five six seven");
+      });
 
-    <!-- <script>
+      $('#2').click(function(){
+        $('.info').text('Apple varieties spread across Europe to France arriving in England around Norman Conquest in 1066.');
+        $('.value').addClass("two").removeClass("one three four five six seven");
+      });
 
-    var slider = $('#slider');
-    var links = $('#timeline > span');
-    var values = [0, 10, 34, 67];
+      $('#3').click(function(){
+        $('.info').text('North American apple harvesting began with the settlers at Jamestown in 1607.');
+        $('.value').addClass("three").removeClass("one two four five six seven");
+      });
 
-    slider.slider({
-        value: 0,
-        min: 0,
-        max: 100,
-        animate: 500,
-        stop: function(event, ui) {
-            slider.slider('value', _getClosest(ui.value) );
-        }
-    });
+      $('#4').click(function(){
+        $('.info').text('In 1939, Japanese apple breeders crossed the genes from the classic Red Delicious apple variety with that of Jefferson’s Ralls Genet, resulting in the now ubiquitous Fuji apple.');
+        $('.value').addClass("four").removeClass("one two three five six seven");
+      });
+    </script>
 
-    links.click(function() {
-        slider.slider('value', values[$(this).index()]);
-    });
-
-    $.each(links, function(key, value) {
-        $(value).css('left', values[key] * 2);
-    });
-
-      function _getClosest(value) {
-          var closest = null;
-          $.each(values, function(_key, _value) {
-              if (closest == null || Math.abs(this - value) < Math.abs(closest - value)) {
-                  closest = this;
-              }   
-          });
-          
-          return closest;
-      }
-        </script> -->
-
-        <script>
-          $('#1').click(function(){
-            $('.info').text('Scientists believe the Tian Shan apple seeds were first transported out of Kazakhstan by birds and bears long before humans ever cultivated them.');
-          });
-
-          $('#2').click(function(){
-            $('.info').text('Apple varieties spread across Europe to France arriving in England around Norman Conquest in 1066.');
-          });
-
-          $('#3').click(function(){
-            $('.info').text('North American apple harvesting began with the settlers at Jamestown in 1607.');
-          });
-
-          $('#4').click(function(){
-            $('.info').text('In 1939, Japanese apple breeders crossed the genes from the classic Red Delicious apple variety with that of Jefferson’s Ralls Genet, resulting in the now ubiquitous Fuji apple.');
-          });
-        </script>
   </body>
 </html>
